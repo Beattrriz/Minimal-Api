@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dotnet\\Minimal-Api\\minimal-api\\minimal-api.csproj": {}
+    "D:\\Dotnet\\Minimal-Api\\MINIMAL-API\\minimal-api.csproj": {}
   },
   "projects": {
-    "D:\\Dotnet\\Minimal-Api\\minimal-api\\minimal-api.csproj": {
+    "D:\\Dotnet\\Minimal-Api\\MINIMAL-API\\minimal-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dotnet\\Minimal-Api\\minimal-api\\minimal-api.csproj",
+        "projectUniqueName": "D:\\Dotnet\\Minimal-Api\\MINIMAL-API\\minimal-api.csproj",
         "projectName": "minimal-api",
-        "projectPath": "D:\\Dotnet\\Minimal-Api\\minimal-api\\minimal-api.csproj",
+        "projectPath": "D:\\Dotnet\\Minimal-Api\\MINIMAL-API\\minimal-api.csproj",
         "packagesPath": "C:\\Users\\byalt\\.nuget\\packages\\",
-        "outputPath": "D:\\Dotnet\\Minimal-Api\\minimal-api\\obj\\",
+        "outputPath": "D:\\Dotnet\\Minimal-Api\\MINIMAL-API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,6 +68,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.7.3, )"
             }
           },
           "imports": [
