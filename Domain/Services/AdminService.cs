@@ -14,6 +14,28 @@ namespace MinimalAPI.Domain.Service
             _context = context;
         }
 
+        public Admin Add(Admin admin)
+        {
+            _context.Admins.Add(admin);
+            _context.SaveChanges();
+
+            return admin;
+        }
+
+        public List<Admin> All(int? pag)
+        {
+            var query = _context.Admins.AsQueryable();
+
+            int itemsPerPag = 10;
+
+            if(pag != null)
+            {
+                query = query.Skip(( (int) pag - 1) * itemsPerPag).Take(itemsPerPag);
+            }
+
+            return query.ToList();
+        }
+
         public Admin? Login(LoginDTO loginDTO)
         {
             var adm = _context.Admins
@@ -21,6 +43,11 @@ namespace MinimalAPI.Domain.Service
                 .FirstOrDefault();
             
             return adm; 
+        }
+
+        public Admin? SearchById(int id)
+        {
+            return _context.Admins.Where(ad => ad.Id == id).FirstOrDefault();
         }
     }
 }

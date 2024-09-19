@@ -4,7 +4,7 @@ namespace MinimalAPI.Domain.Interface
 {
     public interface IVehicleService
     {
-        List<Vehicle> All (int pag = 1, string? name = null, string? mark = null);
+        List<Vehicle> All (int? pag = 1, string? name = null, string? mark = null);
 
         Vehicle? SearchById(int id);
 
