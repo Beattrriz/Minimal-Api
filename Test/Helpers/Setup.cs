@@ -1,19 +1,18 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.EntityFrameworkCore;
-using MinimalAPI.Infra;
-using MinimalAPI.Api;
 using Microsoft.Extensions.DependencyInjection;
-using MinimalAPI.Domain.Entities;
+using MinimalAPI.Api;
+using MinimalAPI.Domain.Interface;
+using Test.Mocks;
 
-namespace API.Test.Helpers;
+namespace Test.Helpers;
 
 public class Setup
 {
     public const string PORT = "5285";
     public static TestContext testContext = default!;
     public static WebApplicationFactory<Startup> http = default!;
-    public HttpClient client = default!;
+    public static HttpClient client = default!;
 
     public static void ClassInit(TestContext testContext)
     {
@@ -25,8 +24,16 @@ public class Setup
 
             builder.ConfigureServices(services =>
             {
-                services.AddScoped<ILogin<Admin>, AdminServiceMock>();
+                services.AddScoped<IAdminService, AdminServiceMock>();
+                services.AddScoped<IVehicleService, VehicleServiceMock>();
             });
         });
+
+        Setup.client = Setup.http.CreateClient();
+    }
+
+    public static void ClassCleanup()
+    {
+        Setup.http.Dispose();
     }
 }
